@@ -5,11 +5,11 @@
     <class>model.Recipe</class>
     <class>model.Userlogin</class>
     <class>model.Food</class>
-    <class>model.Nutrient</class>
     <class>model.Recipeinformation</class>
     <class>model.Foodinformation</class>
     <class>model.Meal</class>
     <class>model.Nutrientinformation</class>
+    <class>model.Nutrient</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/gb10_db;create=true"/>
       <property name="javax.persistence.jdbc.user" value="APP"/>

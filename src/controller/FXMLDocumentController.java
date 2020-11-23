@@ -30,7 +30,7 @@ public class FXMLDocumentController implements Initializable {
     //  disconnecting java -jar derbyrun.jar server shutdown
     // this is a Database manager
     
-    EntityManager manager;
+    private EntityManager manager;
     
     @FXML
     private ResourceBundle resources;

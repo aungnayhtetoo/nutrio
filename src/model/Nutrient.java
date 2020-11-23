@@ -123,7 +123,7 @@ public class Nutrient implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Nutrient[ nutrientId=" + nutrientId + " ]";
+        return "Nutrient Id: " + nutrientId + " Name: " + nutrientName;
     }
     
 }

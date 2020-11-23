@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NutrientViewController">
    <children>
       <BorderPane layoutX="-1.0" layoutY="-2.0" prefHeight="490.0" prefWidth="675.0">
          <center>
@@ -29,32 +29,32 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="63.0" prefWidth="221.0" text="Nutrient 1" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                  <Button fx:id="nutrBtn1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#getNutr" prefHeight="63.0" prefWidth="221.0" text="Nutrient 1" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                      <font>
                         <Font size="26.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="63.0" prefWidth="221.0" text="Nutrient 2" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1">
+                  <Button fx:id="nutrBtn2" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#getNutr" prefHeight="63.0" prefWidth="221.0" text="Nutrient 2" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1">
                      <font>
                         <Font size="26.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="63.0" prefWidth="221.0" text="Nutrient 3" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="1">
+                  <Button fx:id="nutrBtn3" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#getNutr" prefHeight="63.0" prefWidth="221.0" text="Nutrient 3" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="1">
                      <font>
                         <Font size="26.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="63.0" prefWidth="221.0" text="Nutrient 6" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Button fx:id="nutrBtn6" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#getNutr" prefHeight="63.0" prefWidth="221.0" text="Nutrient 6" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="26.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="63.0" prefWidth="221.0" text="Nutrient 5" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="2">
+                  <Button fx:id="nutrBtn5" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#getNutr" prefHeight="63.0" prefWidth="221.0" text="Nutrient 5" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="2">
                      <font>
                         <Font size="26.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="63.0" prefWidth="221.0" text="Nutrient 4" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button fx:id="nutrBtn4" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#getNutr" prefHeight="63.0" prefWidth="221.0" text="Nutrient 4" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="26.0" />
                      </font>
