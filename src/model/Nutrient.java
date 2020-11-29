@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Nutrient.findAll", query = "SELECT n FROM Nutrient n")
     , @NamedQuery(name = "Nutrient.findByNutrientId", query = "SELECT n FROM Nutrient n WHERE n.nutrientId = :nutrientId")
-    , @NamedQuery(name = "Nutrient.findByNutrientName", query = "SELECT n FROM Nutrient n WHERE n.nutrientName = :nutrientName")
+    , @NamedQuery(name = "Nutrient.findByNutrientName", query = "SELECT n FROM Nutrient n WHERE LOWER(n.nutrientName) = LOWER(:nutrientName)")
     , @NamedQuery(name = "Nutrient.findByDailyIntake", query = "SELECT n FROM Nutrient n WHERE n.dailyIntake = :dailyIntake")})
 public class Nutrient implements Serializable {
 

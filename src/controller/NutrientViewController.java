@@ -5,14 +5,22 @@
  */
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
@@ -52,13 +60,19 @@ public class NutrientViewController implements Initializable {
     @FXML
     private Button nutrBtn4;
     
+    @FXML
+    private Label locationHeader1;
+    @FXML
+    
     ArrayList<Button> btnList = new ArrayList<>();
 
-    @FXML
-    void getNutr(ActionEvent event) {
-        Button btn = (Button)event.getSource();
-        System.out.println(btn.getText());
-    }
+//    @FXML
+//    void getNutr(ActionEvent event) {
+//        Button btn = (Button)event.getSource();
+//        // testing if the button calls the correct nutrient from the database
+//        //System.out.println(btn.getText().toLowerCase());
+//        //System.out.println(readNutrientByName(btn.getText().toLowerCase()).toString());
+//    }
     
     public void setNutrientLabel(){
         btnList.add(nutrBtn1);
@@ -71,6 +85,16 @@ public class NutrientViewController implements Initializable {
         for(int i = 0; i < btnList.size(); i++){
             btnList.get(i).setText(readById(i+1).getNutrientName());
         }
+    }
+    
+    public Nutrient readNutrientByName(String nutrient){
+        Query query = manager.createNamedQuery("Nutrient.findByNutrientName");
+        
+        query.setParameter("nutrientName", nutrient);
+        
+       Nutrient nutr = (Nutrient)query.getSingleResult();
+        //System.out.println(recipes.size());
+        return nutr;
     }
     
     public List<Nutrient> readNutrient(){
@@ -94,8 +118,42 @@ public class NutrientViewController implements Initializable {
         return nut;
     }
 
-    
+    @FXML
+    void getNutr(ActionEvent event) throws IOException {
+        Button btn = (Button)event.getSource();
+        
+        // testing if the button calls the correct nutrient from the database
+//        //System.out.println(btn.getText().toLowerCase());
+//        //System.out.println(readNutrientByName(btn.getText().toLowerCase()).toString());
+        
+        Nutrient nutrientSelected = readNutrientByName(btn.getText().toLowerCase());
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/NutrientInfo.fxml"));
+        
+        
+        try{        
+            System.out.println(nutrientSelected.toString());
+            Parent detailModelView = loader.load();
+            Scene tableViewScene = new Scene(detailModelView);
 
+            NutrientInfoController controller = loader.getController();
+            controller.initData(nutrientSelected);
+            controller.setHeader(locationHeader1.getText());
+
+            Scene currentScene = ((Node) event.getSource()).getScene();
+            controller.setPreviousScene(currentScene);
+
+            Stage stage = (Stage) currentScene.getWindow();
+            stage.setScene(tableViewScene);
+            stage.show();
+        } catch(NullPointerException  e){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error Button Malfunctioning");
+            alert.setHeaderText("Nutrient not found in system");
+            alert.setContentText("Please check the database");
+            alert.showAndWait();
+        }
+        
+    }
     
 
     @Override

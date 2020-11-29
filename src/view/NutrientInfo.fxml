@@ -14,14 +14,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NutrientInfoController">
    <children>
       <BorderPane prefHeight="490.0" prefWidth="675.0">
          <bottom>
             <Pane prefHeight="78.0" prefWidth="675.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button layoutX="25.0" layoutY="25.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="105.0" text="Back" />
-                  <Button layoutX="545.0" layoutY="25.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="105.0" text="What to eat" />
+                  <Button fx:id="backBtn" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" onAction="#goBackScene" prefHeight="30.0" prefWidth="105.0" text="Back" />
+                  <Button fx:id="toEatBtn" layoutX="545.0" layoutY="25.0" mnemonicParsing="false" onAction="#openWhatToEat" prefHeight="30.0" prefWidth="105.0" text="What to eat" />
                </children>
             </Pane>
          </bottom>
@@ -32,8 +32,8 @@
                      <content>
                         <AnchorPane prefHeight="235.0" prefWidth="569.0">
                            <children>
-                              <Text layoutX="194.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nurtient Information goes here" wrappingWidth="171.13671875" />
-                              <ImageView fitHeight="109.0" fitWidth="153.0" layoutX="14.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #1e90ff;">
+                              <Text fx:id="nurtInfo" layoutX="194.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nurtient Information goes here" wrappingWidth="171.13671875" />
+                              <ImageView fx:id="nurtImage" fitHeight="109.0" fitWidth="153.0" layoutX="14.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #1e90ff;">
                                  <image>
                                     <Image url="@../banana.jpg" />
                                  </image>
@@ -57,18 +57,18 @@
                         <Line endX="133.0" layoutX="329.0" layoutY="36.0" startX="85.0" strokeWidth="4.0" />
                         <Circle fill="#e8e8e8" layoutX="392.0" layoutY="36.0" radius="22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
                         <Line endX="133.0" layoutX="236.0" layoutY="36.0" startX="85.0" strokeWidth="4.0" />
-                        <Label layoutX="166.0" layoutY="57.0" text="Location App" />
-                        <Label layoutX="263.0" layoutY="57.0" text="Location App" />
+                        <Label fx:id="locationHeader1" alignment="CENTER" layoutX="170.0" layoutY="57.0" text="Location App" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
+                        <Label fx:id="locationHeader2" alignment="CENTER" layoutX="263.0" layoutY="57.0" text="Location App" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
                      </children>
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="675.0">
                      <children>
-                        <Label layoutX="30.0" layoutY="12.0" prefHeight="45.0" prefWidth="282.0" text="Nutrient Information">
+                        <Label fx:id="nutrientTitle" layoutX="30.0" layoutY="12.0" prefHeight="45.0" prefWidth="282.0" text="Nutrient Information">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </Label>
-                        <Label layoutX="30.0" layoutY="50.0" prefHeight="17.0" prefWidth="230.0" text="Instruction for User goes here" />
+                        <Label fx:id="description" layoutX="30.0" layoutY="50.0" prefHeight="17.0" prefWidth="230.0" text="Instruction for User goes here" />
                      </children>
                   </AnchorPane>
                </children>
