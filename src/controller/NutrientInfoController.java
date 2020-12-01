@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Nutrient;
@@ -25,23 +26,50 @@ import model.Nutrient;
  * @author Aung Nay
  */
 public class NutrientInfoController implements Initializable {
+    
+  
+    @FXML
+    private Button backBtn;
+
+    @FXML
+    private Button toEatBtn;
+
+    @FXML
+    private Text nurtInfo;
+
+    @FXML
+    private ImageView nurtImage;
+
+    @FXML
+    private Circle icon2;
+
+    @FXML
+    private Circle icon3;
+
+    @FXML
+    private Circle icon1;
+
+    @FXML
+    private Circle icon4;
+
+    @FXML
+    private Button locationHeader3;
+
+    @FXML
+    private Button locationHeader2;
+
+    @FXML
+    private Button locationHeader1;
+
+    @FXML
+    private Button locationHeader4;
 
     @FXML
     private Label nutrientTitle;
+
     @FXML
     private Label description;
-    @FXML
-    private Button backBtn;
-    @FXML
-    private Button toEatBtn;
-    @FXML
-    private Text nurtInfo;
-    @FXML
-    private ImageView nurtImage;
-    @FXML
-    private Label locationHeader1;
-    @FXML
-    private Label locationHeader2;
+
     
     Scene previousScene;
     Nutrient selectedNutrient;

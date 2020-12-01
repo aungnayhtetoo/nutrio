@@ -20,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -59,11 +60,35 @@ public class NutrientViewController implements Initializable {
 
     @FXML
     private Button nutrBtn4;
-    
+
     @FXML
-    private Label locationHeader1;
+    private Button quitBtn;
+
     @FXML
+    private Circle icon2;
+
+    @FXML
+    private Circle icon3;
+
+    @FXML
+    private Circle icon1;
+
+    @FXML
+    private Circle icon4;
+
+    @FXML
+    private Button locationHeader3;
+
+    @FXML
+    private Button locationHeader2;
+
+    @FXML
+    private Button locationHeader1;
+
+    @FXML
+    private Button locationHeader4; 
     
+    @FXML    
     ArrayList<Button> btnList = new ArrayList<>();
 
 //    @FXML
@@ -93,7 +118,7 @@ public class NutrientViewController implements Initializable {
         query.setParameter("nutrientName", nutrient);
         
        Nutrient nutr = (Nutrient)query.getSingleResult();
-        //System.out.println(recipes.size());
+        //System.out.println(nutr.toString());
         return nutr;
     }
     
@@ -137,6 +162,7 @@ public class NutrientViewController implements Initializable {
 
             NutrientInfoController controller = loader.getController();
             controller.initData(nutrientSelected);
+            
             controller.setHeader(locationHeader1.getText());
 
             Scene currentScene = ((Node) event.getSource()).getScene();
@@ -155,6 +181,11 @@ public class NutrientViewController implements Initializable {
         
     }
     
+    @FXML
+    void exitApplicaiton(ActionEvent event) {
+        Stage stage = (Stage) quitBtn.getScene().getWindow();
+        stage.close();
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
