@@ -21,7 +21,7 @@
             <Pane prefHeight="78.0" prefWidth="675.0" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="backBtn" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" onAction="#goBackScene" prefHeight="30.0" prefWidth="105.0" text="Back" />
-                  <Button fx:id="toEatBtn" layoutX="545.0" layoutY="25.0" mnemonicParsing="false" onAction="#openWhatToEat" prefHeight="30.0" prefWidth="105.0" text="What to eat" />
+                  <Button fx:id="toEatBtn" layoutX="545.0" layoutY="25.0" mnemonicParsing="false" onAction="#openWhatToEat" prefHeight="30.0" prefWidth="105.0" text="What to Eat" />
                </children>
             </Pane>
          </bottom>
@@ -67,7 +67,7 @@
                               <Font name="Roboto Bold" size="12.0" />
                            </font>
                         </Button>
-                        <Button fx:id="locationHeader1" layoutX="158.0" layoutY="57.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="95.0" style="-fx-background-color: Transparent;" text="Nutrient List" textFill="WHITE">
+                        <Button fx:id="locationHeader1" layoutX="158.0" layoutY="57.0" mnemonicParsing="false" onAction="#goBackScene" prefHeight="10.0" prefWidth="95.0" style="-fx-background-color: Transparent;" text="Nutrient List" textFill="WHITE">
                            <font>
                               <Font name="Roboto Bold" size="12.0" />
                            </font>

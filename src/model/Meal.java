@@ -123,7 +123,7 @@ public class Meal implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Meal[ mealId=" + mealId + " ]";
+        return "Meal id: " + mealId + " Name: " + mealName;
     }
     
 }
