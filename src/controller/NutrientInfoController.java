@@ -5,16 +5,22 @@
  */
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -96,6 +102,7 @@ public class NutrientInfoController implements Initializable {
         nutrientTitle.setText(selectedNutrient.getNutrientName());
         description.setText(selectedNutrient.getDescription());
         locationHeader2.setText(selectedNutrient.getNutrientName());
+        icon2.setFill(Color.web("#979797"));
         
         try{
             String imgName = "/resource/nutrient/" + selectedNutrient.getNutrientName().toLowerCase() + ".jpg";
@@ -116,7 +123,33 @@ public class NutrientInfoController implements Initializable {
     }
 
     @FXML
-    private void openWhatToEat(ActionEvent event) {
+    private void openWhatToEat(ActionEvent event) throws IOException {
+        Nutrient nutrientSelected = selectedNutrient;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MealFoodView.fxml"));
+        
+        try{        
+            System.out.println(nutrientSelected.toString());
+            Parent detailModelView = loader.load();
+            Scene tableViewScene = new Scene(detailModelView);
+
+            MealFoodViewController controller = loader.getController();
+            controller.initData(nutrientSelected);
+            
+            controller.setHeader(locationHeader1.getText(), locationHeader2.getText());
+
+            Scene currentScene = ((Node) event.getSource()).getScene();
+            controller.setPreviousScene(currentScene);
+
+            Stage stage = (Stage) currentScene.getWindow();
+            stage.setScene(tableViewScene);
+            stage.show();
+        } catch(NullPointerException  e){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error Button Malfunctioning");
+            alert.setHeaderText("Nutrient not found in system");
+            alert.setContentText("Please check the database");
+            alert.showAndWait();
+        }
     }
     
 }
